@@ -1,0 +1,11 @@
+<!-- Child component -->
+
+<app-select [receivedData]="categories" (sendEvent)="getProductsByCName($event)"></app-select>
+<div class="row mt-3" *ngIf="!loading">
+  <div class="col-md-4" *ngFor="let item of products;">
+    <app-product [item]="item" (addedProduct)="addToCartFn($event)"></app-product>
+  </div>
+</div>
+<div class="text-center w-100" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
